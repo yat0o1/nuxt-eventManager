@@ -2,7 +2,7 @@
 Web application for searching events by query or labels(tags) with function to add your own events developed using nuxt 3 and tailwind css
 
 ## Setup instruction
-Clone the project by that URL: https://github.com/yat0o1/nuxt-cinema
+Clone the project by that URL: https://github.com/yat0o1/nuxt-eventManager
 Run command below to build a docker container:
 
 ```
