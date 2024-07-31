@@ -7,7 +7,5 @@ services:
       - "3000:3000"
     environment:
       - API_KEY=${API_KEY}
-      - PUBLIC_API_BASE=${PUBLIC_API_BASE}
     working_dir: /web
     restart: always
-    command: ["npm", "start"]
