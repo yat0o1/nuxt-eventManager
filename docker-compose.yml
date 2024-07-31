@@ -5,7 +5,4 @@ services:
     build: .
     ports:
       - "3000:3000"
-    environment:
-      - API_KEY=${API_KEY}
-    working_dir: /web
     restart: always

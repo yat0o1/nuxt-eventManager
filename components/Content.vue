@@ -81,7 +81,6 @@ import axios from 'axios';
 import NewEvent from './NewEvent.vue';
 
 const config = useRuntimeConfig();
-const apiKey = config.public.ApiKey;
 const isClient = ref(false);
 const query = ref('');
 const events = ref([]);
@@ -103,7 +102,7 @@ const fetchEvents = async () => {
     try {
       const response = await axios.get('https://api.predicthq.com/v1/events/', {
         headers: {
-          Authorization: `Bearer ${apiKey}`,
+          Authorization: `Bearer ${config.public.API_KEY}`,
           Accept: 'application/json'
         },
         params: {
@@ -132,7 +131,7 @@ const fetchEventsLabel = async (label) => {
   try {
     const response = await axios.get('https://api.predicthq.com/v1/events/', {
       headers: {
-        Authorization: `Bearer ${apiKey}`,
+        Authorization: `Bearer ${config.public.API_KEY}`,
         Accept: 'application/json'
       },
       params: { 
