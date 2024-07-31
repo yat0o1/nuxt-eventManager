@@ -4,6 +4,8 @@ WORKDIR /web
 
 COPY package*.json ./
 
+RUN npm install -g npm@latest
+RUN rm -rf node_modules package-lock.json
 RUN npm install
 
 COPY . .

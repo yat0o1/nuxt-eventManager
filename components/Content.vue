@@ -101,9 +101,9 @@ const fetchEvents = async () => {
   if(query.value.trim()){
     currentSearchType.value = 'query';
     try {
-      const response = await axios.get('https://api.predicthq.com/v1/events/', {
+      const response = await axios.get(`${config.public.apiBase}/events/`, {
         headers: {
-          Authorization: `Bearer ${apiKey}`,
+          Authorization: `Bearer ${config.apiKey}`,
           Accept: 'application/json'
         },
         params: {
@@ -130,9 +130,9 @@ const fetchEventsLabel = async (label) => {
     offset.value = 0;
   }
   try {
-    const response = await axios.get('https://api.predicthq.com/v1/events/', {
+    const response = await axios.get(`${config.public.apiBase}/events/`, {
       headers: {
-        Authorization: `Bearer ${apiKey}`,
+        Authorization: `Bearer ${config.apiKey}`,
         Accept: 'application/json'
       },
       params: { 
