@@ -4,9 +4,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss'],
   runtimeConfig: {
-    server: {
-      port: process.env.PORT || 3000, 
-    },
     public: {
       ApiKey: process.env.API_KEY
     },
