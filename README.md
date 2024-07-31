@@ -1,75 +1,37 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3 application
+Web application for searching events by query or labels(tags) with function to add your own events developed using nuxt 3 and tailwind css
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Setup instruction
+Clone the project by that URL: https://github.com/yat0o1/nuxt-eventManager
+Run command below to build a docker container:
 
-## Setup
+```
+make build
+```
 
-Make sure to install the dependencies:
+or
 
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+```
+docker-compose up --build -d
 ```
 
 ## Development Server
+Check the application on http://localhost:3000
 
-Start the development server on `http://localhost:3000`:
+## Check the containers running
 
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+```
+docker ps
 ```
 
-## Production
+## To down the container
 
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+```
+make down
 ```
 
-Locally preview production build:
+or
 
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+docker-compose down
+```
