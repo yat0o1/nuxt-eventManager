@@ -80,8 +80,9 @@ import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import NewEvent from './NewEvent.vue';
 
-const isClient = ref(false);
 const config = useRuntimeConfig();
+const apiKey = config.public.ApiKey;
+const isClient = ref(false);
 const query = ref('');
 const events = ref([]);
 const loadingData = ref(false);
@@ -102,7 +103,7 @@ const fetchEvents = async () => {
     try {
       const response = await axios.get('https://api.predicthq.com/v1/events/', {
         headers: {
-          Authorization: `Bearer ${config.public.ApiKey}`,
+          Authorization: `Bearer ${apiKey}`,
           Accept: 'application/json'
         },
         params: {
@@ -113,8 +114,6 @@ const fetchEvents = async () => {
       });
       events.value = response.data.results;
       eventsCount.value = response.data.count;
-      console.log(events.value)
-      console.log(response.data.count)
     } 
     catch (error) {
       console.error('Error fetching events:', error);
@@ -133,7 +132,7 @@ const fetchEventsLabel = async (label) => {
   try {
     const response = await axios.get('https://api.predicthq.com/v1/events/', {
       headers: {
-        Authorization: `Bearer ${config.public.ApiKey}`,
+        Authorization: `Bearer ${apiKey}`,
         Accept: 'application/json'
       },
       params: { 
@@ -143,8 +142,7 @@ const fetchEventsLabel = async (label) => {
     });
     events.value = response.data.results;
     eventsCount.value = response.data.count;
-    console.log(events.value);
-    console.log(eventsCount.value);
+
   } 
   catch (error) {
     console.error('Error fetching events:', error);
@@ -160,7 +158,6 @@ const searchEvents = () => {
 
 const pageChange = (newOffset) => {
   offset.value = newOffset;
-  console.log(offset.value)
   if (currentSearchType.value === 'query') {
     fetchEvents();
   } else if (currentSearchType.value === 'label') {
